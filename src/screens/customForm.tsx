@@ -2,8 +2,8 @@ import Card from "../components/card";
 import CustomButton from "../components/customButton";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import isEmpty from "lodash/isEmpty";
 import { useMovieList } from "../apollo/hooks/useMovieList";
+import { useState } from "react";
 
 type FormState = {
   firstName: string;
@@ -12,6 +12,7 @@ type FormState = {
 };
 
 const MyForm = () => {
+  const [formCompleted, setFormCompleted] = useState(false);
   const initialValues = {
     firstName: "",
     lastName: "",
@@ -28,26 +29,22 @@ const MyForm = () => {
     favoriteMovie: Yup.string().notRequired(),
   });
 
-  const handleSubmit = (
-    values: FormState,
-    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
-  ) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-    }, 400);
+  const handleSubmit = (values: FormState) => {
+    setFormCompleted(true);
+    console.log(formCompleted);
   };
   const { data: starWarsMovies, error, loading } = useMovieList();
+
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
     >
-      {({ isSubmitting, errors, touched }) => (
+      {({ errors, touched }) => (
         <Card>
-          <div className="">
-            <Form>
+          {!formCompleted ? (
+            <Form style={{ alignItems: "center", alignContent: "center" }}>
               <h1 className="text-2xl font-bold text-left pb-4 text-gray-600">
                 My form
               </h1>
@@ -103,14 +100,19 @@ const MyForm = () => {
                 </Field>
               </label>
               <div className="mt-4 w-full flex justify-end">
-                <CustomButton
-                  disabled={isSubmitting}
-                  type="submit"
-                  text="Submit"
-                />
+                <CustomButton disabled={false} type="submit" text="Submit" />
               </div>
             </Form>
-          </div>
+          ) : (
+            <div className="flex flex-grow">
+              <h1 className="absolute text-2xl font-bold text-left pb-4 text-gray-600">
+                My form
+              </h1>
+              <div className="flex flex-grow items-center justify-center ">
+                Thanks for submitting the form!
+              </div>
+            </div>
+          )}
         </Card>
       )}
     </Formik>
