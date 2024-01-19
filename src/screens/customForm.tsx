@@ -31,7 +31,6 @@ const MyForm = () => {
 
   const handleSubmit = (values: FormState) => {
     setFormCompleted(true);
-    console.log(formCompleted);
   };
   const { data: starWarsMovies, error, loading } = useMovieList();
 
@@ -41,7 +40,7 @@ const MyForm = () => {
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
     >
-      {({ errors, touched }) => (
+      {({ errors, touched, isValid, isSubmitting }) => (
         <Card>
           {!formCompleted ? (
             <Form
@@ -112,7 +111,13 @@ const MyForm = () => {
                         name="favoriteMovie"
                         className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                       >
-                        <option value="">Select a movie</option>
+                        <option value="">
+                          {error
+                            ? `Error loading movies, please try again later`
+                            : loading
+                            ? `Loading movies`
+                            : `Select a movie`}
+                        </option>
                         {starWarsMovies?.map((movie, index) => (
                           <option key={index} value={movie.title}>
                             {movie.title}
@@ -120,10 +125,7 @@ const MyForm = () => {
                         ))}
                       </Field>
                     </div>
-                    <div
-                      // style={{ marginRight:  }}
-                      className="flex md:w-2/4 flex-col "
-                    ></div>
+                    <div className="flex md:w-2/4 flex-col "></div>
                   </div>
                 </div>
                 <div style={{ flex: 1, flexGrow: 1 }}>
@@ -132,7 +134,7 @@ const MyForm = () => {
                     className="mt-4  flex justify-end"
                   >
                     <CustomButton
-                      disabled={false}
+                      disabled={!isValid || isSubmitting}
                       type="submit"
                       text="Submit"
                     />
