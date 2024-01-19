@@ -1,39 +1,16 @@
-import Card from "../components/card";
-import CustomButton from "../components/customButton";
+import Card from "../../components/card";
+import CustomButton from "../../components/customButton";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import { useMovieList } from "../apollo/hooks/useMovieList";
-import { useState } from "react";
 
-type FormState = {
-  firstName: string;
-  lastName: string;
-  favoriteMovie: string;
-};
-
-const MyForm = () => {
-  const [formCompleted, setFormCompleted] = useState(false);
-  const initialValues = {
-    firstName: "",
-    lastName: "",
-    favoriteMovie: "",
-  };
-
-  const validationSchema = Yup.object().shape({
-    firstName: Yup.string()
-      .min(2, "First name must be 2 or more characters")
-      .required("You need to enter a first name."),
-    lastName: Yup.string()
-      .min(2, "Last name must be 2 or more characters")
-      .required("You need to enter a last name."),
-    favoriteMovie: Yup.string().notRequired(),
-  });
-
-  const handleSubmit = (values: FormState) => {
-    setFormCompleted(true);
-  };
-  const { data: starWarsMovies, error, loading } = useMovieList();
-
+export default function MyFormPresentation({
+  initialValues,
+  validationSchema,
+  handleSubmit,
+  formCompleted,
+  starWarsMovies,
+  error,
+  loading,
+}) {
   return (
     <Formik
       initialValues={initialValues}
@@ -156,6 +133,4 @@ const MyForm = () => {
       )}
     </Formik>
   );
-};
-
-export default MyForm;
+}
