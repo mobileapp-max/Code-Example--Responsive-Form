@@ -1,6 +1,7 @@
 import Card from "../../components/card";
 import CustomButton from "../../components/customButton";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { CustomField } from "../../components/customSelect";
 
 export default function MyFormPresentation({
   initialValues,
@@ -46,35 +47,20 @@ export default function MyFormPresentation({
                     </div>
                   ))}
                 </div>
-                <div className="flex flex-col md:flex-row gap-4">
-                  <div className="flex md:w-2/4 flex-col">
-                    <span className="block mb-2 text-sm font-medium text-gray-600">
-                      First name <span className="text-red-500">*</span>
-                    </span>
-                    <Field
-                      name="firstName"
-                      className={`mt-1 w-full px-3 py-2 border ${
-                        errors.firstName && touched.firstName
-                          ? "border-red-500"
-                          : "border-gray-300"
-                      } rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 `}
-                    />
-                  </div>
-                  <div className="flex md:w-2/4 flex-col">
-                    <span className="block mb-2 text-sm font-medium text-gray-600">
-                      Last name <span className="text-red-500">*</span>
-                    </span>
-                    <Field
-                      name="lastName"
-                      className={`mt-1 w-full px-3 py-2 border ${
-                        errors.lastName && touched.lastName
-                          ? "border-red-500"
-                          : "border-gray-300"
-                      } rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 `}
-                    />
-                  </div>
+                <div className="flex flex-col md:flex-row gap-4 mb-5">
+                  <CustomField
+                    title="First name"
+                    errors={errors}
+                    touched={touched}
+                    name="firstName"
+                  />
+                  <CustomField
+                    title="Last name"
+                    errors={errors}
+                    touched={touched}
+                    name="lastName"
+                  />
                 </div>
-                <br />
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex md:w-2/4 flex-col">
                     <span className="block mb-2 text-sm font-medium text-gray-700">
