@@ -16,6 +16,7 @@ const MyForm = () => {
       starWarsMovies={starWarsMovies}
       error={error}
       loading={loading}
+      errorFields={["firstName", "lastName", "favoriteMovie"]}
     />
   );
 };

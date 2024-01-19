@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import * as Yup from 'yup';
 
-export default function MyFormLogic() {
-    const [formCompleted, setFormCompleted] = useState(false);
+interface FormValues {
+    firstName: string;
+    lastName: string;
+    favoriteMovie: string;
+}
 
-    const initialValues = {
+export default function MyFormLogic() {
+    const [formCompleted, setFormCompleted] = useState<boolean>(false);
+    const errorFields = ["firstName", "lastName", "favoriteMovie"];
+
+    const initialValues: FormValues = {
         firstName: '',
         lastName: '',
         favoriteMovie: '',
@@ -20,10 +27,9 @@ export default function MyFormLogic() {
         favoriteMovie: Yup.string().notRequired(),
     });
 
-    const handleSubmit = (values) => {
+    const handleSubmit = () => {
         setFormCompleted(true);
-        // Additional logic after form submission
     };
 
-    return { initialValues, validationSchema, handleSubmit, formCompleted };
+    return { initialValues, validationSchema, handleSubmit, formCompleted, errorFields };
 };

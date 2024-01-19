@@ -10,6 +10,10 @@ const CustomButton: React.FC<CustomButtonProps> = ({
   text,
   type,
   disabled,
+}: {
+  text: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }) => {
   const buttonClass = disabled
     ? "px-4 py-2 text-sm font-medium text-white bg-gray-400 rounded-md focus:outline-none"
