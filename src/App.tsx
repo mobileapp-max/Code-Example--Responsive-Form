@@ -3,7 +3,7 @@ import CustomForm from "./screens/customForm";
 
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center  bg-blue-500 w-screen h-screen">
+    <div className="flex flex-col items-center justify-center w-screen h-screen bg-customblue">
       <CustomForm />
     </div>
   );
