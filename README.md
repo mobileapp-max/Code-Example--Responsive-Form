@@ -1,7 +1,9 @@
 # Code Example - Responsive Form 
 
-A code example showcasing a responsive form that adapts to both <span style="color:teal">**mobile**</span> and <span style="color:teal">**desktop**</span> interfaces. The code demonstrates proficiency in <span style="color:teal">handling form state</span>, <span style="color:teal">validation</span>, and <span style="color:teal">data fetching</span> using modern React practices and libraries.
+A code example showcasing a responsive form that adapts to both <span style="color:teal">**mobile**</span> and <span style="color:teal">**desktop**</span> interfaces. The code demonstrates proficiency in <span style="color:teal">**handling form state**</span>, <span style="color:teal">**validation**</span>, and <span style="color:teal">**data fetching**</span> using modern React practices and libraries.
 
+## Web vs Mobile View
+<img src="./src/assets/images/GIF.gif">
 
 ## Features
  ### 1. Responsive Design 
