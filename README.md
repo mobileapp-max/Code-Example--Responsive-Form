@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# Code Example - Responsive Form 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A code example showcasing a responsive form that adapts to both <span style="color:teal">**mobile**</span> and <span style="color:teal">**desktop**</span> interfaces. The code demonstrates proficiency in <span style="color:teal">handling form state</span>, <span style="color:teal">validation</span>, and <span style="color:teal">data fetching</span> using modern React practices and libraries.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features
+ ### 1. Responsive Design 
+ - Adapting seamlessly to both mobile and desktop screen sizes.
 
-### `npm start`
+ ### 2. Form Library
+- Formik is used to manage the form state and handle user inputs.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 3. Validation
+- Yup is used to validate the first and last name fields 
+- Error messages are displayed for validation errors.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 4. Data Fetching
+- Data for the "Favorite Star Wars Movie" field is retrieved from a GraphQL API.
+- Apollo is used for fetching and managing the data.
+### 5. Separation of Concerns
+- There is a clear separation between the logic for the form and the data query from the visual components.
+- Best practices for code structuring are adopted.
+Additional Considerations
 
-### `npm test`
+## Technologies Used
+#### `React`
+#### `Formik` for state and user input managing 
+#### `Yup` for validation
+#### `Apollo` for data fetching
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
 
-### `npm run build`
+### - Clone the repository.
+### - Install dependencies using `npm install` or `yarn`.
+### - Run the application using `npm start` or `yarn start`.
+### - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
